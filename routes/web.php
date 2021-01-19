@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Rol;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,8 @@ Route::get('/', function () {
     return response()->json($roles);
 
 });
+
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout']);
 
 Route::resource('cursos', CursoController::class);
